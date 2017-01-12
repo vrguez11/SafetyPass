@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>PASS GENERATOR</title>
+    </head>
+    <body>
+        
+        <script language="JavaScript">
+            
+            function generator() {
+                document.getElementById('pass_generated').visibility=false;
+                var caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ.,:;abcdefghijklmnopqrstuvwxyz-_/&%1234567890$@#=!"; //posibles caracteres a usar
+                var numerocaracteres=8; //numero de letras para generar el texto
+                var cadena = ""; //variable para almacenar la cadena generada
+
+                for( var i=0; i < numerocaracteres; i++ ){
+                    cadena += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+                }
+                
+                document.getElementById('pass_generated').visibility=true;
+                document.getElementById('pass_generated').innerHTML=cadena;
+//                alert(cadena);
+            }
+            
+//            document.writeln(screen.width + " x " + screen.height);
+        </script>
+        
+        <form>
+            <div align='center'>
+                <div id='btn_generator' onclick='generator()'>GENERAR PASS</div>
+                <p id='pass_generated'></p>
+            </div>
+        </form>
+        
+    </body>
+</html>
